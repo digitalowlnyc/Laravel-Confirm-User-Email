@@ -1,0 +1,16 @@
+{
+    "name": "bluenest/confirm-user-email",
+    "description": "A package to confirm user emails after registration.",
+    "authors": [
+        {
+            "name": "Bryan",
+            "email": "bryan@bluenestdigital.com"
+        }
+    ],
+    "require": {},
+    "autoload": {
+        "psr-4": {
+            "BlueNest\\ConfirmUserEmail\\": "src/BlueNest/ConfirmUserEmail"
+        }
+    }
+}
