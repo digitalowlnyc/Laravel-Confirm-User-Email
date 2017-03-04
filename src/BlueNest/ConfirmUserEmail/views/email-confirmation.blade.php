@@ -13,20 +13,6 @@
                         <form class="form-horizontal" role="form" method="POST" action="{{ url('/send-confirmation') }}">
                             {{ csrf_field() }}
 
-                                    <!--div class="form-group{{ $errors->has('account-id') ? ' has-error' : '' }}">
-                                <label for="account-id" class="col-md-4 control-label">IBAN</label>
-
-                                <div class="col-md-6">
-                                    <input id="account-id" type="text" class="form-control" name="account-id" value="{{ old('account-id') }}">
-
-                                    @if ($errors->has('account-id'))
-                                    <span class="help-block">
-                                    <strong>{{ $errors->first('account-id') }}</strong>
-                                    </span>
-                                    @endif
-                                    </div>
-                                </div-->
-
                             @if(config('app.confirm.gcaptcha-enabled', false) && Config::has('app.confirm.gcaptcha-site-key'))
                                 <div class="form-group{{ $errors->has('g-captcha-input') ? ' has-error' : '' }}">
                                     <label for="account-id" class="col-md-4 control-label">Captcha</label>
