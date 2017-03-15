@@ -2,11 +2,12 @@
 
 namespace BlueNest\ConfirmUserEmail\Middleware;
 
+use BlueNest\ConfirmUserEmail\ConfirmEmailHelpers;
 use BlueNest\ConfirmUserEmail\Models\ConfirmationCode;
 use Closure;
 use Illuminate\Contracts\Auth\Factory as AuthFactory;
-use Illuminate\Support\Facades\Auth;
 use Illuminate\Http\Response;
+use Illuminate\Support\Facades\Auth;
 
 class UserIsConfirmed
 {
@@ -42,7 +43,7 @@ class UserIsConfirmed
             $user = Auth::user();
             if(!$user->is_confirmed) {
                 if(!ConfirmationCode::existsFor($user->id)) {
-                    sendConfirmationEmail($user);
+                    ConfirmEmailHelpers::sendConfirmationEmail($user);
                     return new Response(view('confirm-user-email::confirmation-sent'));
                 } else {
                     return redirect('user-confirmation');
